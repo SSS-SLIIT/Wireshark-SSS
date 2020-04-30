@@ -883,9 +883,9 @@ set_abs_ymd_time(const frame_data *fd, gchar *buf, char *decimal_point, gboolean
   if (fd->has_ts) {
     then = fd->abs_ts.secs;
     if (local)
-      tmp = localtime(&then);
+      tmp = localtime_r(&then);
     else
-      tmp = gmtime(&then);
+      tmp = gmtime_r(&then);
   } else
     tmp = NULL;
   if (tmp != NULL) {
@@ -1017,9 +1017,9 @@ set_abs_ydoy_time(const frame_data *fd, gchar *buf, char *decimal_point, gboolea
   if (fd->has_ts) {
     then = fd->abs_ts.secs;
     if (local)
-      tmp = localtime(&then);
+      tmp = localtime_r(&then);
     else
-      tmp = gmtime(&then);
+      tmp = gmtime_r(&then);
   } else
     tmp = NULL;
   if (tmp != NULL) {
@@ -1475,9 +1475,9 @@ set_abs_time(const frame_data *fd, gchar *buf, char *decimal_point, gboolean loc
   if (fd->has_ts) {
     then = fd->abs_ts.secs;
     if (local)
-      tmp = localtime(&then);
+      tmp = localtime_r(&then);
     else
-      tmp = gmtime(&then);
+      tmp = gmtime_r(&then);
   } else
     tmp = NULL;
   if (tmp != NULL) {
