@@ -5311,7 +5311,7 @@ console_log_handler(const char *log_domain, GLogLevelFlags log_level,
     } else {
         /* create a "timestamp" */
         time(&curr);
-        today = localtime(&curr);
+        today = localtime_r(&curr);
 
         /* info/debug messages with additional infos */
         if (today != NULL)
