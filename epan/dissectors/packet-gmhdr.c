@@ -317,7 +317,7 @@ dissect_gmtimestamp_trailer(tvbuff_t *tvb, packet_info *pinfo _U_, proto_tree *t
       offset += 4;
       gmtimev.nsecs = tvb_get_ntohl(tvb, offset);
 
-      tm = localtime(&gmtimev.secs);
+      tm = localtime_r(&gmtimev.secs);
       if (tm)
         proto_item_append_text(ti, "%d:%02d:%02d.%09d", tm->tm_hour, tm->tm_min, tm->tm_sec, gmtimev.nsecs);
       else
