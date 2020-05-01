@@ -391,7 +391,7 @@ absolute_time_string(nstime_t *timer, int tsprecision, capture_info *cf_info)
       }
       return time_string_buf;
     } else {
-      ti_tm = localtime_r(&timer->secs);
+      ti_tm = localtime(&timer->secs);
       if (ti_tm == NULL) {
         g_snprintf(time_string_buf, sizeof time_string_buf, "Not representable");
         return time_string_buf;
