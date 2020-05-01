@@ -5438,7 +5438,7 @@ int dissect_cip_attribute(packet_info *pinfo, proto_tree *tree, proto_item *item
       temp_data = tvb_get_letohs( tvb, offset);
       /* Convert to nstime epoch */
       computed_time = CIP_TIMEBASE+(temp_data*60*60*24);
-      date = gmtime_r(&computed_time);
+      date = gmtime(&computed_time);
       if (date != NULL)
           strftime(date_str, 20, "%b %d, %Y", date);
       else
