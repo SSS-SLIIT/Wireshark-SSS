@@ -193,7 +193,7 @@ abs_time_to_str_with_sec_resolution(const nstime_t *abs_time)
     struct tm *tmp;
     gchar     *buf = (gchar *)g_malloc(16);
 
-    tmp = localtime_r(&abs_time->secs);
+    tmp = localtime(&abs_time->secs);
 
     if (tmp) {
         g_snprintf(buf, 16, "%d%02d%02d%02d%02d%02d",
