@@ -99,7 +99,7 @@ dissect_exablaze(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
     proto_item_append_text(ti, ", Device: %u, Port: %u, Timestamp: ",
             device, port);
 
-    tm = localtime(&timestamp.secs);
+    tm = localtime_r(&timestamp.secs);
     if (tm)
         proto_item_append_text(ti, "%02u:%02u:%02.12f",
                 tm->tm_hour, tm->tm_min, tm->tm_sec + timestamp_frac_double);
