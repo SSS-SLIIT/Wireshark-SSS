@@ -1658,7 +1658,7 @@ static const gchar *dissect_thales_ipm_id (tvbuff_t *tvb, gint offset, gint leng
     guint8 number_len = modifier + 2;
     time_t timev = tvb_get_ntohl(tvb, offset + length - 4);
     struct tm tmp;
-    gmtime_r(&timev, &tmp);
+    gmtime_r(&timev , &tmp);
 
     if (tmp == NULL)
       return TIME_NOT_REPRESENTABLE;
